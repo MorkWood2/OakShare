@@ -1,0 +1,29 @@
+<% include ../partials/header %>
+    <div class="container ">
+      <div class="media">
+    <div class="media-body">
+      <h1 class="mt-0 userHeading heading"><%=user.firstName + ' ' + user.lastName %></h1>
+      <hr>
+    </div>
+  </div>
+    </div>
+<div class="container">
+  <div class="row text-center grid" >
+        <% arts.forEach((art) => { %>
+            <div class="col-sm-3">
+                <div class="thumbnail">
+                   <img src="<%= art.image %>">
+                   <div class="caption heading">
+                       <h4><%= art.name %></h4>
+                   </div>
+                   <p>
+                       <a href="/art/<%= art._id %>" class="btn btn-primary">More Info</a>
+                   </p>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+</div>
+
+
+<% include ../partials/footer %>

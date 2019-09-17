@@ -1,0 +1,51 @@
+<% include ../partials/header %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="thumbnail">
+                <div class="container-img">
+                  <img class="img-responsive" src="<%= art.image %>">
+                </div>
+                <div class="caption-full">
+                    <h3 class="heading"><a><%=art.name%></a></h3>
+                    <p><%= art.description %></p>
+                    <p>
+                      <em>Submitted By <a href="/users/<%= art.author.id %>"><%= art.author.username %></a>, <%= moment(art.createdAt).fromNow() %></em>
+                      </p>
+                    <% if(currentUser && art.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
+                        <a class="btn btn-xs btn-warning" href="/art/<%= art._id %>/edit">Edit</a>
+                        <form id="delete-form" action="/art/<%= art._id %>?_method=DELETE" method="POST">
+                            <button class="btn btn-xs btn-danger">Delete</button>
+                        </form>
+                    <% }%>
+                </div>
+            </div>
+            <div class="well">
+                <div class="text-right">
+                    <a class="btn btn-success" href="/art/<%= art._id %>/comments/new">Add New Comment</a>
+                </div>
+                <hr>
+                <% art.comments.forEach(function(comment){ %>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <strong><%= comment.author.username %></strong>
+                            <span class="pull-right"><%= moment(comment.createdAt).fromNow() %></span>
+                            <p>
+                                <%= comment.text %>
+                            </p>
+                        <% if(currentUser && comment.author.id.equals(currentUser._id) ||currentUser && currentUser.isAdmin){ %>
+                            <a class="btn btn-xs btn-warning"
+                               href="/art/<%=art._id %>/comments/<%=comment._id %>/edit">Edit</a>
+                            <form id="delete-form" action="/art/<%=art._id %>/comments/<%=comment._id %>?_method=DELETE" method="POST">
+                                <input type="submit" class="btn btn-xs btn-danger" value="Delete">
+                            </form>
+                        <% } %>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>

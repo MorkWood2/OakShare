@@ -1,0 +1,54 @@
+.thumbnail img {
+    width: 100%;
+}
+
+.thumbnail {
+    padding: 0;
+}
+
+.thumbnail .caption-full {
+    padding: 9px;
+}
+
+#delete-form {
+    display: inline;
+}
+.grid{
+  display:flex;
+  flex-wrap: wrap
+}
+.jumbotron{
+  background-color: #C7DBE6;
+  font-family: 'Lora', serif;
+
+}
+.jumbotron h1 {
+  font-weight: bold;
+}
+.form{
+width: 30%;
+margin: 25px auto;">
+}
+
+/* .heading{
+  text-align: center;
+} */
+
+.container-img{
+  height: 600px;
+}
+
+.container-img  .img-responsive {
+    display: block;
+    width: auto;
+    max-height: 100%;
+}
+
+.userHeading{
+  padding-bottom: 20px;
+}
+
+.heading{
+    font-family: 'Lora', serif;
+    font-weight: bold;
+}

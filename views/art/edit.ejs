@@ -1,0 +1,25 @@
+<% include ../partials/header %>
+<div class="container">
+    <div class="row">
+        <h1 class="heading">Edit <%= art.name %></h1>
+        <div class = 'form'>
+            <form action="/art/<%= art._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <input class="form-control" type="text" name="art[name]" value="<%= art.name %>">
+                </div>
+                <div class="form-group">
+                    <label for="image">Image</label>
+                    <input type="file" id="image" name="image" accept="image/*" >
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="art[description]" value="<%= art.description %>">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+                </div>
+            </form>
+            <a href="/art">Go Back</a>
+        </div>
+    </div>
+</div>
+<% include ../partials/footer %>

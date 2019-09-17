@@ -1,0 +1,24 @@
+<% include ./partials/header %>
+<div class="container">
+  <h1 class="heading">Sign Up!</h1>
+  <form action="/register" method="post" class = 'form'>
+    <div class="form-group">
+      <input type="text" class="form-control" name="username" placeholder="username">
+    </div>
+    <div class="form-group">
+      <input type="password" class="form-control" name="password" placeholder="password">
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" name="firstName" placeholder="first name">
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" name="lastName" placeholder="last name">
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" name="adminCode" placeholder="admin Code">
+    </div>
+      <button>Sign Up</button>
+  </form>
+</div>
+
+<% include ./partials/footer %>
